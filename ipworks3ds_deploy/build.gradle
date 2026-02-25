@@ -1,0 +1,31 @@
+apply plugin: 'com.android.library'
+apply plugin: 'maven-publish'
+
+android {
+    namespace 'com.hyperpay.ipworks3ds.deploy'
+    compileSdk 35
+
+    defaultConfig {
+        minSdk 24
+        targetSdk 35
+    }
+}
+
+configurations.maybeCreate('default')
+artifacts.add('default', file('libs/ipworks3ds_sdk_9374_deploy.aar'))
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                groupId = 'com.github.hrvojecukman'
+                artifactId = 'ipworks3ds_deploy'
+                version = '7.4.0'
+                artifact('libs/ipworks3ds_sdk_9374_deploy.aar') {
+                    classifier 'ipworks3ds_deploy'
+                    extension 'aar'
+                }
+            }
+        }
+    }
+}
