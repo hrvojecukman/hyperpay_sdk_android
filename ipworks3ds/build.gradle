@@ -12,7 +12,7 @@ android {
 }
 
 configurations.maybeCreate('default')
-artifacts.add('default', file('libs/ipworks3ds_sdk_9374.aar'))
+artifacts.add('default', file('libs/ipworks3ds_sdk_9469.aar'))
 
 afterEvaluate {
     publishing {
@@ -20,8 +20,8 @@ afterEvaluate {
             release(MavenPublication) {
                 groupId = 'com.github.hrvojecukman'
                 artifactId = 'ipworks3ds'
-                version = '7.4.0'
-                artifact('libs/ipworks3ds_sdk_9374.aar') {
+                version = '7.8.1'
+                artifact('libs/ipworks3ds_sdk_9469.aar') {
                     classifier 'ipworks3ds'
                     extension 'aar'
                 }
